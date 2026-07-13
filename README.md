@@ -17,15 +17,15 @@ Run the CLI once to copy these into a repo, and `update` later to pull refreshed
 
 **Kit workflow** — standards and skills flow from the kit into your repo; the agent reads them (plus `AGENTS.local.md`).
 
-![Kit workflow](docs/images/kit-workflow-whiteboard.png)
+![Kit workflow](docs/images/kit-workflow-whiteboard.svg)
 
 **Request flow** — transport, domain, and data layers; cross-cutting guards, pipes, interceptors, and filters.
 
-![App layers](docs/images/app-layers-whiteboard.png)
+![App layers](docs/images/app-layers-whiteboard.svg)
 
 **`src/` layout** — feature modules under `modules/`, shared `common/`, `config/`, and `prisma/`.
 
-![App folders](docs/images/app-folders-whiteboard.png)
+![App folders](docs/images/app-folders-whiteboard.svg)
 
 ## Layout
 
@@ -43,7 +43,7 @@ Code review lives in the **code-review** skill only, not in `docs/standards/`. T
 From GitHub (before npm publish):
 
 ```bash
-npx github:hamzaali/nestjs-agent-workflow-kit init
+npx github:hamzaali81/nestjs-agent-workflow-kit init
 ```
 
 From npm (after publish):
@@ -105,7 +105,7 @@ Managed paths are listed in `manifest.json` for predictable updates:
 
 1. Push to your Git host.
 2. `npm publish --access public` (optional).
-3. Consumers run `npx nestjs-agent-workflow-kit init` or `npx github:hamzaali/nestjs-agent-workflow-kit init`.
+3. Consumers run `npx nestjs-agent-workflow-kit init` or `npx github:hamzaali81/nestjs-agent-workflow-kit init`.
 
 ## Developing the kit
 

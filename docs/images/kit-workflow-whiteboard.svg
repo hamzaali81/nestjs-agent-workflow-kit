@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <rect width="1000" height="420" fill="#ffffff"/>
+  <text x="500" y="46" text-anchor="middle" font-size="26" font-weight="700" fill="#1f2933">nestjs-agent-workflow-kit</text>
+  <text x="500" y="72" text-anchor="middle" font-size="14" fill="#7b8794">One kit → every repo → any agent</text>
+
+  <!-- Stage 1: KIT -->
+  <rect x="40" y="110" width="250" height="240" rx="14" fill="#fff" stroke="#1f2933" stroke-width="2.5"/>
+  <text x="165" y="140" text-anchor="middle" font-size="16" font-weight="700" fill="#E0234E">THE KIT</text>
+  <rect x="66" y="158" width="198" height="46" rx="8" fill="#fdf2f5" stroke="#1f2933" stroke-width="1.5"/>
+  <text x="165" y="186" text-anchor="middle" font-size="14" fill="#1f2933">AGENTS.md</text>
+  <rect x="66" y="214" width="198" height="46" rx="8" fill="#fdf2f5" stroke="#1f2933" stroke-width="1.5"/>
+  <text x="165" y="242" text-anchor="middle" font-size="14" fill="#1f2933">docs/standards/</text>
+  <rect x="66" y="270" width="198" height="46" rx="8" fill="#fdf2f5" stroke="#1f2933" stroke-width="1.5"/>
+  <text x="165" y="298" text-anchor="middle" font-size="14" fill="#1f2933">.agents/skills/</text>
+
+  <!-- Arrow 1 -->
+  <line x1="298" y1="230" x2="382" y2="230" stroke="#E0234E" stroke-width="3"/>
+  <polygon points="382,230 368,222 368,238" fill="#E0234E"/>
+  <text x="340" y="216" text-anchor="middle" font-size="12" fill="#7b8794">npx init</text>
+  <text x="340" y="256" text-anchor="middle" font-size="12" fill="#7b8794">/ update</text>
+
+  <!-- Stage 2: repo -->
+  <rect x="390" y="110" width="270" height="240" rx="14" fill="#fff" stroke="#1f2933" stroke-width="2.5"/>
+  <text x="525" y="140" text-anchor="middle" font-size="16" font-weight="700" fill="#1f2933">Your NestJS repo</text>
+  <rect x="416" y="158" width="218" height="40" rx="8" fill="#f5f7fa" stroke="#1f2933" stroke-width="1.5"/>
+  <text x="525" y="183" text-anchor="middle" font-size="13" fill="#1f2933">AGENTS.md</text>
+  <rect x="416" y="204" width="218" height="40" rx="8" fill="#f5f7fa" stroke="#1f2933" stroke-width="1.5"/>
+  <text x="525" y="229" text-anchor="middle" font-size="13" fill="#1f2933">docs/standards/ · .agents/skills/</text>
+  <rect x="416" y="250" width="218" height="44" rx="8" fill="#fff" stroke="#E0234E" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <text x="525" y="270" text-anchor="middle" font-size="12.5" fill="#E0234E">AGENTS.local.md</text>
+  <text x="525" y="286" text-anchor="middle" font-size="11" fill="#7b8794">yours — kit never touches</text>
+
+  <!-- Arrow 2 -->
+  <line x1="668" y1="230" x2="752" y2="230" stroke="#E0234E" stroke-width="3"/>
+  <polygon points="752,230 738,222 738,238" fill="#E0234E"/>
+  <text x="710" y="216" text-anchor="middle" font-size="12" fill="#7b8794">reads</text>
+
+  <!-- Stage 3: agent -->
+  <rect x="760" y="150" width="200" height="160" rx="14" fill="#fff" stroke="#1f2933" stroke-width="2.5"/>
+  <rect x="820" y="182" width="80" height="60" rx="10" fill="#fdf2f5" stroke="#1f2933" stroke-width="2"/>
+  <circle cx="845" cy="205" r="6" fill="#1f2933"/>
+  <circle cx="875" cy="205" r="6" fill="#1f2933"/>
+  <line x1="845" y1="224" x2="875" y2="224" stroke="#1f2933" stroke-width="2.5"/>
+  <line x1="860" y1="170" x2="860" y2="182" stroke="#1f2933" stroke-width="2"/>
+  <circle cx="860" cy="168" r="3.5" fill="#E0234E"/>
+  <text x="860" y="272" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2933">Coding agent</text>
+  <text x="860" y="292" text-anchor="middle" font-size="12" fill="#7b8794">follows the rules</text>
+</svg>

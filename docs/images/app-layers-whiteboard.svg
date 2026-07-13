@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <rect width="1000" height="500" fill="#ffffff"/>
+  <text x="500" y="44" text-anchor="middle" font-size="24" font-weight="700" fill="#1f2933">Request flow — layers</text>
+
+  <!-- request arrow (down, left) -->
+  <line x1="70" y1="90" x2="70" y2="410" stroke="#E0234E" stroke-width="3"/>
+  <polygon points="70,410 62,394 78,394" fill="#E0234E"/>
+  <text x="70" y="80" text-anchor="middle" font-size="12" fill="#E0234E">request</text>
+
+  <!-- response arrow (up, right) -->
+  <line x1="770" y1="410" x2="770" y2="90" stroke="#3e4c59" stroke-width="3"/>
+  <polygon points="770,90 762,106 778,106" fill="#3e4c59"/>
+  <text x="770" y="80" text-anchor="middle" font-size="12" fill="#3e4c59">response</text>
+
+  <!-- bands -->
+  <rect x="110" y="90" width="600" height="70" rx="12" fill="#fdf2f5" stroke="#1f2933" stroke-width="2.2"/>
+  <text x="130" y="120" font-size="16" font-weight="700" fill="#E0234E">Transport</text>
+  <text x="130" y="142" font-size="13" fill="#1f2933">Controllers + DTOs — validate, delegate, shape response</text>
+
+  <rect x="110" y="172" width="600" height="70" rx="12" fill="#f5f7fa" stroke="#1f2933" stroke-width="2.2"/>
+  <text x="130" y="202" font-size="16" font-weight="700" fill="#1f2933">Domain</text>
+  <text x="130" y="224" font-size="13" fill="#1f2933">Services — business rules, orchestration, transactions</text>
+
+  <rect x="110" y="254" width="600" height="70" rx="12" fill="#f5f7fa" stroke="#1f2933" stroke-width="2.2"/>
+  <text x="130" y="284" font-size="16" font-weight="700" fill="#1f2933">Data / I·O</text>
+  <text x="130" y="306" font-size="13" fill="#1f2933">Repositories + PrismaService, HTTP clients, queues</text>
+
+  <!-- database cylinder -->
+  <g stroke="#1f2933" stroke-width="2.2" fill="#fff">
+    <ellipse cx="410" cy="360" rx="150" ry="16"/>
+    <path d="M260 360 v34 a150 16 0 0 0 300 0 v-34" fill="#fdf2f5"/>
+    <ellipse cx="410" cy="360" rx="150" ry="16" fill="#fff"/>
+  </g>
+  <text x="410" y="388" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2933">Database (Prisma)</text>
+
+  <!-- cross-cutting bracket -->
+  <path d="M740 90 h20 v300 h-20" fill="none" stroke="#E0234E" stroke-width="2.5"/>
+  <text x="775" y="230" font-size="15" font-weight="700" fill="#E0234E" transform="rotate(90 775 230)" text-anchor="middle">Cross-cutting</text>
+  <text x="800" y="150" font-size="13" fill="#1f2933">Guards</text>
+  <text x="800" y="200" font-size="13" fill="#1f2933">Pipes</text>
+  <text x="800" y="250" font-size="13" fill="#1f2933">Interceptors</text>
+  <text x="800" y="300" font-size="13" fill="#1f2933">Exception filters</text>
+
+  <text x="500" y="450" text-anchor="middle" font-size="12" fill="#7b8794">Each layer talks only to the next — controllers never touch Prisma directly.</text>
+</svg>

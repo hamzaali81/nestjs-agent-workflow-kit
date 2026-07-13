@@ -4,7 +4,7 @@ You are an expert in TypeScript, NestJS, and scalable server-side application de
 
 - **Shared defaults:** `docs/standards/` — engineering conventions and implementation rules for this stack.
 - **Task capabilities:** `.agents/skills/` — triggered workflows (e.g. code review, Prisma data layer, OpenAPI) with references.
-- **Local overrides:** `AGENTS.local.md` — project-specific exceptions (not managed by [nestjs-agent-workflow-kit](https://github.com/hamzaali/nestjs-agent-workflow-kit); create and maintain in your repo).
+- **Local overrides:** `AGENTS.local.md` — project-specific exceptions (not managed by [nestjs-agent-workflow-kit](https://github.com/hamzaali81/nestjs-agent-workflow-kit); create and maintain in your repo).
 
 Follow the standards files for TypeScript, module layering, controllers, DTOs and validation, providers and services, configuration, the data layer (Prisma), error handling, and testing.
 

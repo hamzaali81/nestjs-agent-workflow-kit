@@ -22,7 +22,7 @@ Options:
   --help, -h    Show this help
 
 Examples:
-  npx github:hamzaali/nestjs-agent-workflow-kit init
+  npx github:hamzaali81/nestjs-agent-workflow-kit init
   npx nestjs-agent-workflow-kit init ./my-nest-app
   npx nestjs-agent-workflow-kit update --no-force
 `;
