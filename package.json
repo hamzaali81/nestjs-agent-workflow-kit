@@ -1,0 +1,35 @@
+{
+  "name": "nestjs-agent-workflow-kit",
+  "version": "0.1.0",
+  "description": "Install shared AGENTS.md, engineering standards, and agent skills for NestJS projects into any repo",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hamzaali/nestjs-agent-workflow-kit.git"
+  },
+  "keywords": [
+    "agents",
+    "agent-workflow",
+    "nestjs",
+    "nest",
+    "prisma",
+    "standards",
+    "skills"
+  ],
+  "bin": {
+    "nestjs-agent-workflow-kit": "./bin/install.mjs",
+    "nestjs-awkit": "./bin/install.mjs",
+    "naw": "./bin/install.mjs"
+  },
+  "files": [
+    "AGENTS.md",
+    "docs",
+    ".agents",
+    "manifest.json",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

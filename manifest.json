@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "managedPaths": [
+    "AGENTS.md",
+    "docs/standards",
+    ".agents/skills"
+  ]
+}
