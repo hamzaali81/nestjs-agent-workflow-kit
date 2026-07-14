@@ -23,9 +23,9 @@
     "skills"
   ],
   "bin": {
-    "nestjs-agent-workflow-kit": "./bin/install.mjs",
-    "nestjs-awkit": "./bin/install.mjs",
-    "naw": "./bin/install.mjs"
+    "nestjs-agent-workflow-kit": "bin/install.mjs",
+    "nestjs-awkit": "bin/install.mjs",
+    "naw": "bin/install.mjs"
   },
   "scripts": {
     "list": "node bin/install.mjs list",
