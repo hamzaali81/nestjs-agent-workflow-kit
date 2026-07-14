@@ -1,5 +1,8 @@
 # nestjs-agent-workflow-kit
 
+[![CI](https://github.com/hamzaali81/nestjs-agent-workflow-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/hamzaali81/nestjs-agent-workflow-kit/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-informational.svg)](LICENSE)
+
 Shared agent workflow for **[NestJS](https://nestjs.com)** projects: one entrypoint (`AGENTS.md`), engineering standards (`docs/standards/`), and task skills (`.agents/skills/`). Point any coding agent at `AGENTS.md` and it inherits the same rules and capabilities across every repo.
 
 ## How it works
@@ -80,7 +83,9 @@ npx nestjs-agent-workflow-kit list
 npx nestjs-agent-workflow-kit doctor
 ```
 
-CLI bins: `nestjs-agent-workflow-kit`, `nestjs-awkit`, `naw`.
+CLI bins: `nestjs-agent-workflow-kit`, `nestjs-awkit`, `naw`. Add `--version` to print the kit version.
+
+> **Note:** `update` **overwrites** managed files (`AGENTS.md`, `docs/standards/`, `.agents/skills/`) by default — that is how you receive refreshed standards. Do **not** hand-edit managed files; put project-specific rules in `AGENTS.local.md` (never touched by the kit). Use `update --no-force` to only add missing files.
 
 ## Local overrides
 

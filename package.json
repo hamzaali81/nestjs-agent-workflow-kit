@@ -33,7 +33,9 @@
   },
   "files": [
     "AGENTS.md",
-    "docs",
+    "docs/standards",
+    "docs/images/*.svg",
+    "docs/images/README.md",
     ".agents",
     "manifest.json",
     "bin"

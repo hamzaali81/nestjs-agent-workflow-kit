@@ -18,8 +18,9 @@ Usage:
   nestjs-awkit doctor [directory]   Verify managed paths exist in a project
 
 Options:
-  --force, -f   Overwrite existing files (init skips by default; update overwrites by default)
-  --help, -h    Show this help
+  --force, -f     Overwrite existing files (init skips by default; update overwrites by default)
+  --version, -v   Print the kit version
+  --help, -h      Show this help
 
 Examples:
   npx github:hamzaali81/nestjs-agent-workflow-kit init
@@ -64,7 +65,7 @@ async function pathExists(filePath) {
   }
 }
 
-async function copyEntry(src, dest, { force }) {
+async function copyEntry(src, dest, { force, logBase }) {
   const stat = await fs.stat(src);
 
   if (stat.isDirectory()) {
@@ -77,7 +78,7 @@ async function copyEntry(src, dest, { force }) {
       const result = await copyEntry(
         path.join(src, entry.name),
         path.join(dest, entry.name),
-        { force },
+        { force, logBase },
       );
       copied += result.copied;
       skipped += result.skipped;
@@ -86,55 +87,51 @@ async function copyEntry(src, dest, { force }) {
     return { copied, skipped };
   }
 
+  const rel = path.relative(logBase, dest);
   const destExists = await pathExists(dest);
   if (destExists && !force) {
-    console.log(`  skip (exists): ${path.relative(process.cwd(), dest)}`);
+    console.log(`  skip (exists): ${rel}`);
     return { copied: 0, skipped: 1 };
   }
 
   await fs.mkdir(path.dirname(dest), { recursive: true });
   await fs.copyFile(src, dest);
-  console.log(`  ${destExists ? 'updated' : 'wrote'}: ${path.relative(process.cwd(), dest)}`);
+  console.log(`  ${destExists ? 'updated' : 'wrote'}: ${rel}`);
   return { copied: 1, skipped: 0 };
 }
 
 async function installManaged(targetDir, { force, label }) {
   const manifest = await loadManifest();
-  const prevCwd = process.cwd();
+  const resolvedTarget = path.resolve(targetDir);
 
-  try {
-    process.chdir(targetDir);
-    console.log(`${label} nestjs-agent-workflow-kit v${manifest.version} → ${path.resolve(targetDir)}\n`);
+  console.log(`${label} nestjs-agent-workflow-kit v${manifest.version} → ${resolvedTarget}\n`);
 
-    let totalCopied = 0;
-    let totalSkipped = 0;
+  let totalCopied = 0;
+  let totalSkipped = 0;
 
-    for (const managed of manifest.managedPaths) {
-      const src = path.join(KIT_ROOT, managed);
-      const dest = path.join(targetDir, managed);
+  for (const managed of manifest.managedPaths) {
+    const src = path.join(KIT_ROOT, managed);
+    const dest = path.join(resolvedTarget, managed);
 
-      if (!(await pathExists(src))) {
-        console.warn(`  warn: missing in kit: ${managed}`);
-        continue;
-      }
-
-      const srcStat = await fs.stat(src);
-      console.log(managed + (srcStat.isDirectory() ? '/' : ''));
-      const { copied, skipped } = await copyEntry(src, dest, { force });
-      totalCopied += copied;
-      totalSkipped += skipped;
+    if (!(await pathExists(src))) {
+      console.warn(`  warn: missing in kit: ${managed}`);
+      continue;
     }
 
-    console.log(`\nDone. ${totalCopied} file(s) written, ${totalSkipped} skipped.`);
-    if (totalSkipped > 0 && !force) {
-      console.log('Re-run with --force to overwrite existing files.');
-    }
-    console.log(
-      '\nTip: add AGENTS.local.md for project-specific overrides (not managed by the kit).',
-    );
-  } finally {
-    process.chdir(prevCwd);
+    const srcStat = await fs.stat(src);
+    console.log(managed + (srcStat.isDirectory() ? '/' : ''));
+    const { copied, skipped } = await copyEntry(src, dest, { force, logBase: resolvedTarget });
+    totalCopied += copied;
+    totalSkipped += skipped;
   }
+
+  console.log(`\nDone. ${totalCopied} file(s) written, ${totalSkipped} skipped.`);
+  if (totalSkipped > 0 && !force) {
+    console.log('Re-run with --force to overwrite existing files.');
+  }
+  console.log(
+    '\nTip: add AGENTS.local.md for project-specific overrides (not managed by the kit).',
+  );
 }
 
 async function cmdInit(targetDir, { force }) {
@@ -230,6 +227,12 @@ async function cmdDoctor(targetDir) {
 
 async function main() {
   const argv = process.argv.slice(2);
+
+  if (argv.includes('--version') || argv.includes('-v')) {
+    const manifest = await loadManifest();
+    console.log(manifest.version);
+    return;
+  }
 
   if (argv.length === 0 || argv.includes('--help') || argv.includes('-h')) {
     console.log(HELP);
