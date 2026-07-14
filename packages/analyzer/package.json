@@ -1,0 +1,20 @@
+{
+  "name": "@nestjs-agent/analyzer",
+  "version": "0.1.0",
+  "description": "Deterministic NestJS architecture analyzer (AST-based) with SARIF output — the v0.2 spike",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "naw-analyze": "./bin/analyze.mjs"
+  },
+  "scripts": {
+    "analyze": "node bin/analyze.mjs",
+    "test": "node bin/analyze.mjs fixtures --expect-issues"
+  },
+  "dependencies": {
+    "ts-morph": "^23.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
